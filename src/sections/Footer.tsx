@@ -7,19 +7,19 @@ export function Footer() {
         <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr 1fr 1.2fr", gap: "var(--s-6)" }}>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "var(--s-3)", marginBottom: "var(--s-3)" }}>
-              <WizardMark size={42} primary="var(--marigold)" accent="var(--coral)"/>
+              <WizardMark size={42} primary="var(--marigold)" accent="var(--coral)" />
               <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 28, letterSpacing: "-0.02em" }}>
                 Powerful Lizards
               </div>
             </div>
             <p className="t-body" style={{ color: "rgba(255,248,232,0.75)", maxWidth: "34ch" }}>
-              Tiny ceramic sorcerers, hand-thrown and fired in Barcelona. One coven a month, until the
+              Tiny ceramic sorcerers, hand-thrown and fired in San Francisco. One coven a month, until the
               clay runs out.
             </p>
           </div>
 
           {[
-            { h: "Shop",   links: ["The May coven", "Past drops", "Reserved & holds", "Gift a lizard"] },
+            { h: "Shop", links: ["The May coven", "Past drops", "Reserved & holds", "Gift a lizard"] },
             { h: "Studio", links: ["About", "Field notes", "Visit the kiln", "Wholesale"] },
           ].map(c => (
             <div key={c.h}>
@@ -48,13 +48,13 @@ export function Footer() {
           </div>
         </div>
 
-        <hr className="divider" style={{ margin: "var(--s-7) 0 var(--s-4) 0", background: "rgba(255,248,232,0.14)" }}/>
+        <hr className="divider" style={{ margin: "var(--s-7) 0 var(--s-4) 0", background: "rgba(255,248,232,0.14)" }} />
         <div style={{
           display: "flex", justifyContent: "space-between",
           color: "rgba(255,248,232,0.55)", fontSize: 13,
           flexWrap: "wrap", gap: "var(--s-3)",
         }}>
-          <div>© 2026 Powerful Lizards · BCN · made with clay and patience</div>
+          <div>© 2026 Powerful Lizards · SF/CA · made with clay and patience</div>
           <div>privacy · returns · the small print</div>
         </div>
       </div>

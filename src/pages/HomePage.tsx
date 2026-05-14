@@ -101,7 +101,7 @@ export default function HomePage() {
           <div className="hp-hero-text">
             <div className="hp-anim hp-d1">
               <div className="eyebrow-row">
-                <span className="t-eyebrow">Ceramic studio · BCN · Since 2022</span>
+                <span className="t-eyebrow">Ceramic studio · SF/CA · Since 2022</span>
               </div>
             </div>
 
@@ -128,9 +128,9 @@ export default function HomePage() {
 
             <div className="hp-stats hp-anim hp-d5">
               {([
-                { n: '1/1',  label: 'Every piece unique' },
-                { n: '6+',   label: 'Glazes in rotation' },
-                { n: '∞',    label: 'Tiny opinions held' },
+                { n: '1/1', label: 'Every piece unique' },
+                { n: '6+', label: 'Glazes in rotation' },
+                { n: '∞', label: 'Tiny opinions held' },
               ] as const).map(s => (
                 <div className="hp-stat" key={s.n}>
                   <span className="hp-stat-n">{s.n}</span>
@@ -149,7 +149,7 @@ export default function HomePage() {
                   style={{ position: 'absolute', inset: 0, color: 'rgba(240,166,187,0.4)', opacity: 0.55 }} />
                 <LizardPortrait hat="#F0A6BB" accent="#E84A3F" robe="#4FB5C7" pattern="dots" />
               </div>
-              <div className="hp-badge-bcn">hand-fired in BCN ✦</div>
+              <div className="hp-badge-sfca ">hand-fired in SF/CA ✦</div>
               <div className="hp-badge-new">new<br />drop</div>
               <div style={{ position: 'absolute', top: '38%', left: '-34px', color: 'var(--primary)' }}>
                 <Star4 size={20} />
@@ -200,8 +200,8 @@ export default function HomePage() {
 
             <p className="t-body-lg hp-anim hp-d3"
               style={{ color: 'rgba(255,248,232,0.75)', marginBottom: 'var(--s-4)', maxWidth: '48ch' }}>
-              I'm a ceramicist based in Barcelona, throwing small ceramic sorcerers out of my
-              studio in the Poble Sec neighbourhood. I make one coven a month — usually six lizards,
+              I'm a ceramicist based in San Francisco, throwing small ceramic sorcerers out of my
+              studio in the Outer Richmond neighborhood. I make one coven a month — usually six lizards,
               always different, never repeated.
             </p>
 
@@ -215,8 +215,8 @@ export default function HomePage() {
             <div className="hp-about-stats hp-anim hp-d5">
               {([
                 { n: 'Est.', sub: '2022' },
-                { n: 'BCN',  sub: 'Spain' },
-                { n: '1×',   sub: 'coven / month' },
+                { n: 'SF/CA', sub: 'USA' },
+                { n: '1×', sub: 'coven / month' },
               ] as const).map(s => (
                 <div className="hp-about-stat" key={s.n}>
                   <span style={{
@@ -368,7 +368,7 @@ export default function HomePage() {
               color: 'rgba(255,248,232,0.45)', fontSize: 13,
               flexWrap: 'wrap', gap: 'var(--s-3)',
             }}>
-              <div>© 2026 Powerful Lizards · BCN · made with clay and patience</div>
+              <div>© 2026 Powerful Lizards · SF/CA · made with clay and patience</div>
               <div style={{ display: 'flex', gap: 'var(--s-4)' }}>
                 <a href="/design-system"
                   style={{ color: 'rgba(255,248,232,0.35)', textDecoration: 'none', fontSize: 13 }}>

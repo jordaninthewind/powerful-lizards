@@ -58,7 +58,7 @@ export function Hero() {
               transform: "rotate(-5deg)",
               fontFamily: "var(--font-hand)", fontSize: "24px", lineHeight: 1,
             }}>
-              hand-fired in BCN ✦
+              hand-fired in SF/CA ✦
             </div>
             <div style={{
               position: "absolute", top: "-20px", right: "-10px",
