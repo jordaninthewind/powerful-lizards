@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import type { Lizard } from '../types';
 import { Droplet } from './Glyphs';
 import { LizardPortrait } from './LizardPortrait';
@@ -73,12 +74,13 @@ export function LizardCard({ lizard }: LizardCardProps) {
         <div className="t-small" style={{ marginTop: 6, marginBottom: "var(--s-3)" }}>{traits}</div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <div className="t-h4" style={{ margin: 0, fontFamily: "var(--font-display)", fontSize: 24 }}>€{price}</div>
-          <button
-            className={`btn ${status === "sold" ? "btn-soft" : "btn-primary"} btn-sm`}
-            disabled={status === "sold"}
-          >
-            {status === "sold" ? "Gone home" : status === "reserved" ? "Waitlist" : "Take home →"}
-          </button>
+          {status === "sold" ? (
+            <button className="btn btn-soft btn-sm" disabled>Gone home</button>
+          ) : (
+            <Link to={`/products/${num}`} className="btn btn-primary btn-sm">
+              {status === "reserved" ? "Waitlist" : "Take home →"}
+            </Link>
+          )}
         </div>
       </div>
     </article>

@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
-import '../App.css';
-import './HomePage.css';
 
-import { LIZARDS } from '../data';
-import { LizardCard } from '../components/LizardCard';
-import { LizardPortrait } from '../components/LizardPortrait';
-import { WizardMark } from '../components/WizardMark';
-import { Star4 } from '../components/Glyphs';
+import { Star4 } from '../../components/Glyphs';
+import { LizardCard } from '../../components/LizardCard';
+import { LizardPortrait } from '../../components/LizardPortrait';
+import { WizardMark } from '../../components/WizardMark';
+import { LIZARDS } from '../../data';
+
+import '../../App.css';
+import './HomePage.css';
 
 const SECTIONS = ['Hero', 'About', 'Shop', 'Contact'] as const;
 
@@ -14,16 +15,16 @@ export default function HomePage() {
   const rootRef = useRef<HTMLDivElement>(null);
   const [activeIdx, setActiveIdx] = useState(0);
 
-  // Apply default design tokens on mount
-  useEffect(() => {
-    const root = document.documentElement;
-    root.style.setProperty('--primary', '#E84A3F');
-    root.style.setProperty('--primary-deep', '#B83227');
-    root.style.setProperty('--primary-soft', '#F8C7B6');
-    root.style.setProperty('--font-display', '"Bricolage Grotesque", serif');
-    root.style.setProperty('--font-sans', '"Plus Jakarta Sans", sans-serif');
-    document.body.dataset.texture = 'on';
-  }, []);
+  // // Apply default design tokens on mount
+  // useEffect(() => {
+  //   const root = document.documentElement;
+  //   root.style.setProperty('--primary', '#E84A3F');
+  //   root.style.setProperty('--primary-deep', '#B83227');
+  //   root.style.setProperty('--primary-soft', '#F8C7B6');
+  //   root.style.setProperty('--font-display', '"Bricolage Grotesque", serif');
+  //   root.style.setProperty('--font-sans', '"Plus Jakarta Sans", sans-serif');
+  //   document.body.dataset.texture = 'on';
+  // }, []);
 
   // IntersectionObserver — toggle data-visible on each section, track active dot
   useEffect(() => {
@@ -287,9 +288,9 @@ export default function HomePage() {
               </div>
               <address style={{ fontStyle: 'normal' }}>
                 <p className="t-body" style={{ color: 'var(--bone)', margin: '0 0 var(--s-2) 0' }}>
-                  Carrer del Parlament, 24<br />
-                  Poble Sec, Barcelona 08015<br />
-                  Spain
+                  Outer Richmond<br />
+                  San Francisco, `CA 94131<br />
+                  USA
                 </p>
               </address>
               <a href="mailto:hello@powerfulizards.com"
