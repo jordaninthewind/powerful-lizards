@@ -29,7 +29,7 @@ export function Hero() {
               visual language that holds them.
             </p>
             <div style={{ display: "flex", gap: "var(--s-3)", flexWrap: "wrap" }}>
-              <a href="#shop" className="btn btn-primary btn-lg">Meet the coven →</a>
+              <a href="#shop" className="btn btn-primary btn-lg">Choose your Sage →</a>
               <a href="#components" className="btn btn-ghost btn-lg">The system</a>
             </div>
             <div style={{ marginTop: "var(--s-6)", display: "flex", gap: "var(--s-5)", flexWrap: "wrap", alignItems: "center" }}>

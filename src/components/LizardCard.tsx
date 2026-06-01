@@ -1,14 +1,14 @@
 import { Link } from 'react-router';
 import type { Lizard } from '../types';
 import { Droplet } from './Glyphs';
-import { LizardPortrait } from './LizardPortrait';
+import { LizardImage } from './LizardImage';
 
 interface LizardCardProps {
   lizard: Lizard;
 }
 
 export function LizardCard({ lizard }: LizardCardProps) {
-  const { name, num, price, status, swatch, hat, accent, robe, traits, motif, hand } = lizard;
+  const { species, name, num, price, status, swatch, traits, motif, hand } = lizard;
   return (
     <article
       className="card"
@@ -33,7 +33,9 @@ export function LizardCard({ lizard }: LizardCardProps) {
           className={`motif-${motif}`}
           style={{ position: "absolute", inset: 0, color: swatch.motif, opacity: 0.55 }}
         />
-        <LizardPortrait hat={hat} accent={accent} robe={robe} pattern={lizard.robePattern}/>
+        <div style={{ position: "relative", zIndex: 1, width: "88%", height: "88%" }}>
+          <LizardImage species={species} alt={`${name} ceramic lizard wizard`} />
+        </div>
         <div style={{ position: "absolute", top: 14, left: 14 }}>
           <span className={`badge badge-${status}`}>
             {status === "available" && "Available"}

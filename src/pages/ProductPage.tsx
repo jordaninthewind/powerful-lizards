@@ -2,7 +2,8 @@ import { useState, Fragment } from 'react';
 import { useParams, Link } from 'react-router';
 import { LIZARDS } from '../data';
 import type { Lizard } from '../types';
-import { LizardPortrait } from '../components/LizardPortrait';
+import { LizardImage } from '../components/LizardImage';
+import { SiteNav } from '../components/SiteNav';
 import { Star4, Droplet, Moon } from '../components/Glyphs';
 
 type CheckoutStep = 'product' | 'shipping' | 'payment' | 'confirmed';
@@ -24,13 +25,16 @@ export default function ProductPage() {
 
   if (!liz) {
     return (
-      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 'var(--s-5)', padding: 'var(--s-6)' }}>
+      <>
+        <SiteNav />
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 'var(--s-5)', padding: 'var(--s-6)' }}>
         <div className="t-hand" style={{ fontSize: 48 }}>no lizard here.</div>
         <p className="t-body" style={{ color: 'var(--ink-2)', textAlign: 'center', maxWidth: '32ch' }}>
           No lizard with number <strong>№{productId}</strong> was found. They may have gone home already.
         </p>
         <Link to="/" className="btn btn-primary">← Back to the coven</Link>
-      </div>
+        </div>
+      </>
     );
   }
 
@@ -44,7 +48,9 @@ export default function ProductPage() {
   const canPurchase = liz.status === 'available' || liz.status === 'new';
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--cream)' }}>
+    <>
+      <SiteNav />
+      <div style={{ minHeight: '100vh', background: 'var(--cream)' }}>
       <div style={{ borderBottom: '1px solid var(--border)', background: 'var(--bone)' }}>
         <div className="container" style={{ padding: 'var(--s-3) var(--s-6)', display: 'flex', gap: 'var(--s-3)', alignItems: 'center' }}>
           <Link to="/" style={{ color: 'var(--ink-3)', textDecoration: 'none', fontSize: 14 }}>The coven</Link>
@@ -77,7 +83,9 @@ export default function ProductPage() {
                 border: '1px solid var(--border)',
               }}>
                 <div className={`motif-${liz.motif}`} style={{ position: 'absolute', inset: 0, color: liz.swatch.motif, opacity: 0.4 }} />
-                <LizardPortrait hat={liz.hat} accent={liz.accent} robe={liz.robe} pattern={liz.robePattern} />
+                <div style={{ position: 'relative', zIndex: 1, width: '88%', height: '88%' }}>
+                  <LizardImage species={liz.species} alt={`${liz.name} ceramic lizard wizard`} />
+                </div>
                 <div style={{ position: 'absolute', top: 18, left: 18 }}>
                   <span className={`badge badge-${liz.status}`}>
                     {liz.status === 'available' && 'Available'}
@@ -132,7 +140,8 @@ export default function ProductPage() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
 

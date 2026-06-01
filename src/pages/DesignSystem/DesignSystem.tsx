@@ -42,7 +42,6 @@ const DesignSystem = () => {
         document.head.appendChild(link);
     }, []);
 
-    // Apply tweaks via CSS custom properties
     useEffect(() => {
         const root = document.documentElement;
         root.style.setProperty("--primary", pal.primary);

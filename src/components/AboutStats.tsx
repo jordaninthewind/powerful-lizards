@@ -4,9 +4,13 @@ const ABOUT_STATS = [
   { n: '1×', sub: 'coven / month' },
 ] as const;
 
-export function AboutStats() {
+interface AboutStatsProps {
+  animated?: boolean;
+}
+
+export function AboutStats({ animated = false }: AboutStatsProps) {
   return (
-    <div className="hp-about-stats hp-anim hp-d5">
+    <div className={`hp-about-stats${animated ? ' hp-anim hp-d5' : ''}`}>
       {ABOUT_STATS.map(s => (
         <div className="hp-about-stat" key={s.n}>
           <span

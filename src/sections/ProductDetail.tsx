@@ -1,6 +1,6 @@
 import { useState, Fragment } from 'react';
 import { LIZARDS } from '../data';
-import { LizardPortrait } from '../components/LizardPortrait';
+import { LizardImage } from '../components/LizardImage';
 import { Star4, Droplet, Moon } from '../components/Glyphs';
 
 export function ProductDetail() {
@@ -45,7 +45,9 @@ export function ProductDetail() {
                 border: "1px solid var(--border)",
               }}>
                 <div className="motif-stars" style={{ position: "absolute", inset: 0, opacity: 0.4 }}/>
-                <LizardPortrait hat={liz.hat} accent={liz.accent} robe={liz.robe} pattern={liz.robePattern}/>
+                <div style={{ position: 'relative', zIndex: 1, width: '88%', height: '88%' }}>
+                  <LizardImage species={liz.species} alt={`${liz.name} ceramic lizard wizard`} />
+                </div>
                 <div style={{ position: "absolute", top: 18, left: 18 }}>
                   <span className="badge badge-available">Available</span>
                 </div>

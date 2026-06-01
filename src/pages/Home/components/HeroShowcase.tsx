@@ -1,5 +1,5 @@
 import { Star4 } from '../../../components/Glyphs';
-import { LizardPortrait } from '../../../components/LizardPortrait';
+import { LizardImage } from '../../../components/LizardImage';
 
 export function HeroShowcase() {
   return (
@@ -18,7 +18,9 @@ export function HeroShowcase() {
               opacity: 0.55,
             }}
           />
-          <LizardPortrait hat="#F0A6BB" accent="#E84A3F" robe="#4FB5C7" pattern="dots" />
+          <div style={{ position: 'relative', zIndex: 1, width: '88%', height: '88%' }}>
+            <LizardImage species="lizard" />
+          </div>
         </div>
         <div className="hp-badge-sfca">hand-fired in SF/CA ✦</div>
         <div className="hp-badge-new">

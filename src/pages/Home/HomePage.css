@@ -149,6 +149,11 @@
 .hp-section[data-visible] .hp-d6 { transition-delay: 0.46s; }
 
 /* ── HERO (full-bleed image) ── */
+.hp-section--hero {
+  min-height: calc(100vh - var(--site-nav-h));
+  min-height: calc(100dvh - var(--site-nav-h));
+}
+
 .hp-hero-bg {
   position: absolute;
   inset: 0;

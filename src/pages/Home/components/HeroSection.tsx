@@ -48,7 +48,7 @@ export function HeroSection({ onScrollTo, activeIdx }: HeroSectionProps) {
 
         <div className="hp-anim hp-d4" style={{ display: 'flex', gap: 'var(--s-3)', flexWrap: 'wrap' }}>
           <Button size="lg" onClick={() => onScrollTo(2)}>
-            Meet the coven →
+            Choose your sage →
           </Button>
           <Button variant="soft" size="lg" onClick={() => onScrollTo(1)}>
             Our story

@@ -1,5 +1,5 @@
 import { LIZARDS } from '../data';
-import { LizardPortrait } from '../components/LizardPortrait';
+import { LizardImage } from '../components/LizardImage';
 
 export function Cart() {
   const items = [LIZARDS[0], LIZARDS[1]];
@@ -59,7 +59,7 @@ export function Cart() {
                     display: "flex", alignItems: "flex-end", justifyContent: "center",
                     flexShrink: 0,
                   }}>
-                    <LizardPortrait hat={l.hat} accent={l.accent} robe={l.robe} pattern={l.robePattern} />
+                    <LizardImage species={l.species} alt={`${l.name} ceramic lizard wizard`} />
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{ display: "flex", justifyContent: "space-between" }}>

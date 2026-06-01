@@ -1,4 +1,7 @@
+export type LizardSpecies = 'lizard' | 'newt' | 'bearded-dragon';
+
 export interface Lizard {
+  species: LizardSpecies;
   name: string;
   num: string;
   price: number;

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import '../../App.css';
 import './HomePage.css';
+import { SiteNav } from '../../components/SiteNav';
 import { AboutSection } from './components/AboutSection';
 import { ContactSection } from './components/ContactSection';
 import { HeroSection } from './components/HeroSection';
@@ -45,11 +46,14 @@ export default function HomePage() {
   };
 
   return (
-    <div className="hp-root" ref={rootRef}>
+    <>
+      <SiteNav />
+      <div className="hp-root" ref={rootRef}>
       <HeroSection onScrollTo={scrollTo} activeIdx={activeIdx} />
       <AboutSection />
       <InventorySection />
       <ContactSection />
-    </div>
+      </div>
+    </>
   );
 }

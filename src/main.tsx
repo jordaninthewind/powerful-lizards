@@ -1,15 +1,18 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router'
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router'
 
 import HomePage from './pages/Home/HomePage.tsx'
+import AboutPage from './pages/About/AboutPage.tsx'
 import DesignSystem from './pages/DesignSystem/DesignSystem.tsx'
 import ProductPage from './pages/ProductPage.tsx'
 import InventoryPage from './pages/Inventory/InventoryPage.tsx'
 
 const router = createBrowserRouter([
   { path: '/', element: <HomePage /> },
-  { path: '/inventory', element: <InventoryPage /> },
+  { path: '/about', element: <AboutPage /> },
+  { path: '/build-a-powerful-lizard', element: <InventoryPage /> },
+  { path: '/inventory', element: <Navigate to="/build-a-powerful-lizard" replace /> },
   { path: '/design-system', element: <DesignSystem /> },
   { path: '/products/:productId', element: <ProductPage /> },
 ])

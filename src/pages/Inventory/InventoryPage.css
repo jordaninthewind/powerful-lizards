@@ -8,7 +8,7 @@
 /* ── Header ── */
 .inv-header {
   text-align: center;
-  padding: var(--s-8) var(--s-6) var(--s-6);
+  padding: var(--s-6) var(--s-6) var(--s-6);
 }
 
 .inv-title {
@@ -131,7 +131,7 @@
 /* ── Color Section ── */
 .inv-colors {
   background: var(--bone);
-  padding: var(--s-9) var(--s-6);
+  padding: var(--s-6) var(--s-6);
   border-top: 1px solid var(--border);
 }
 
@@ -145,7 +145,7 @@
   font-size: clamp(40px, 6vw, 72px);
   font-weight: 700;
   color: var(--ink);
-  margin: 0 0 var(--s-6);
+  margin: 0 0 var(--s-4);
   line-height: 1.1;
 }
 
@@ -154,42 +154,46 @@
   background: #fff;
   border: 1px solid var(--border-strong);
   border-radius: var(--r-md);
-  padding: var(--s-5) var(--s-5) var(--s-4);
+  padding: var(--s-3) var(--s-4);
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: var(--s-4) var(--s-3);
-  margin-bottom: var(--s-8);
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--s-2) var(--s-2);
+  margin-bottom: var(--s-5);
   box-shadow: var(--shadow-sm);
 }
 
 .inv-swatch {
   display: flex;
   flex-direction: column;
-  gap: var(--s-2);
+  gap: var(--s-1);
+  min-width: 0;
 }
 
 .inv-swatch-chip {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1;
+  width: 100%;
+  max-height: 48px;
   border-radius: var(--r-sm);
   border: 1px solid var(--border);
 }
 
 .inv-swatch-name {
   font-family: var(--font-sans);
-  font-size: 10.5px;
-  color: var(--ink-2);
+  font-size: 14px;
+  color: var(--ink);
   text-align: center;
-  line-height: 1.3;
+  line-height: 1.4;
 }
 
-/* Handwritten download instruction */
+/* Download instruction — emphasized callout above species grid */
 .inv-download-note {
-  font-family: var(--font-hand);
-  font-size: clamp(22px, 3.2vw, 38px);
+  font-family: var(--font-sans);
+  font-size: 21px;
+  font-weight: 700;
   color: var(--ink);
-  line-height: 1.45;
+  line-height: 1.5;
   margin: 0 0 var(--s-7);
-  max-width: 26ch;
+  max-width: 34ch;
 }
 
 /* Species reference grid */
@@ -197,7 +201,9 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--s-6);
-  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  justify-items: center;
 }
 
 .inv-species-card {
@@ -205,6 +211,8 @@
   flex-direction: column;
   align-items: center;
   gap: var(--s-3);
+  width: 100%;
+  max-width: 100%;
 }
 
 .inv-species-sketch {
@@ -217,6 +225,15 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  padding: var(--s-2);
+}
+
+.inv-species-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
 }
 
 .inv-species-name {
@@ -226,6 +243,209 @@
   color: var(--ink);
   text-align: center;
   line-height: 1.2;
+}
+
+/* ── Sage customize form ── */
+.inv-form {
+  width: 100%;
+  max-width: 640px;
+  margin: var(--s-8) auto 0;
+}
+
+.inv-form-fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.inv-form-legend {
+  font-family: var(--font-hand);
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  color: var(--ink);
+  padding: 0;
+  margin: 0 0 var(--s-4);
+  line-height: 1.1;
+}
+
+.inv-form-instructions {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.55;
+  margin: 0 0 var(--s-5);
+}
+
+.inv-form-instructions-lead {
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0 0 var(--s-3);
+}
+
+.inv-form-instructions-list {
+  margin: 0;
+  padding-left: 1.35em;
+}
+
+.inv-form-instructions-list li {
+  margin-bottom: var(--s-2);
+}
+
+.inv-form-instructions-list li:last-child {
+  margin-bottom: 0;
+}
+
+.inv-form-instructions a {
+  color: var(--primary);
+  font-weight: 600;
+  text-underline-offset: 2px;
+}
+
+.inv-form-instructions a:hover {
+  text-decoration: underline;
+}
+
+.inv-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-3);
+  margin-bottom: var(--s-3);
+}
+
+.inv-form-field {
+  margin-bottom: var(--s-3);
+}
+
+.inv-form-grid .inv-form-field {
+  margin-bottom: 0;
+}
+
+.inv-form-required,
+.inv-form-optional {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+.inv-form-select {
+  cursor: pointer;
+}
+
+.inv-form-textarea {
+  width: 100%;
+  resize: vertical;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  min-height: 120px;
+}
+
+.inv-form-file {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.inv-form-glazes {
+  border: none;
+  margin: 0 0 var(--s-3);
+  padding: 0;
+  min-width: 0;
+}
+
+.inv-form-hint {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.5;
+  margin: 0 0 var(--s-3);
+}
+
+.inv-form-glaze-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--s-2);
+}
+
+.inv-form-glaze-label {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--ink);
+  cursor: pointer;
+  line-height: 1.3;
+}
+
+.inv-form-glaze-label input {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary);
+}
+
+.inv-form-actions {
+  margin-top: var(--s-4);
+}
+
+.inv-form-success {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.5;
+  margin: 0;
+  text-align: center;
+}
+
+/* Instagram follow link below customize form */
+.inv-instagram {
+  text-align: center;
+  margin: var(--s-7) auto 0;
+  max-width: 640px;
+}
+
+.inv-instagram-link svg {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+.inv-instagram-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--ink-2);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
+  transition: color 180ms var(--ease), opacity 180ms var(--ease);
+}
+
+.inv-instagram-link:hover {
+  color: var(--marigold);
+  opacity: 1;
+}
+
+.inv-instagram-link:focus-visible {
+  outline: 2px solid var(--marigold);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 /* ── Responsive ── */
@@ -245,16 +465,39 @@
     gap: var(--s-2);
   }
 
-  .inv-swatch-frame { grid-template-columns: repeat(4, 1fr); }
-  .inv-species-grid { max-width: 100%; gap: var(--s-4); }
+  .inv-swatch-frame {
+    grid-template-columns: repeat(5, 1fr);
+    padding: var(--s-3);
+  }
+
+  .inv-swatch-chip { max-height: 44px; }
+
+  .inv-species-grid { gap: var(--s-4); }
+
+  .inv-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 900px) {
+  .inv-swatch-frame { grid-template-columns: repeat(7, 1fr); }
 }
 
 @media (max-width: 480px) {
   .inv-header { padding: var(--s-6) var(--s-5) var(--s-5); }
   .inv-portrait { min-height: 300px; }
   .inv-text { padding: var(--s-5) var(--s-4); }
-  .inv-colors { padding: var(--s-7) var(--s-4); }
-  .inv-swatch-frame { grid-template-columns: repeat(3, 1fr); padding: var(--s-4); gap: var(--s-3) var(--s-2); }
-  .inv-species-grid { grid-template-columns: repeat(3, 1fr); gap: var(--s-3); max-width: 100%; }
+  .inv-colors { padding: var(--s-5) var(--s-4); }
+  .inv-swatch-frame {
+    grid-template-columns: repeat(4, 1fr);
+    padding: var(--s-2) var(--s-3);
+    gap: var(--s-2);
+  }
+
+  .inv-swatch-chip { max-height: 40px; }
+  .inv-species-grid { gap: var(--s-3); }
   .inv-species-name { font-size: 16px; }
+
+  .inv-form-instructions { font-size: 18px; }
+  .inv-form-instructions-lead { font-size: 20px; }
 }
