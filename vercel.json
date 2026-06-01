@@ -1,9 +1,16 @@
 {
     "$schema": "https://openapi.vercel.sh/vercel.json",
+    "redirects": [
+        {
+            "source": "/",
+            "destination": "/build-a-powerful-lizard",
+            "statusCode": 307
+        }
+    ],
     "rewrites": [
         {
             "source": "/(.*)",
-            "destination": "/"
+            "destination": "/index.html"
         }
     ],
     "headers": [

@@ -119,7 +119,7 @@ export default function InventoryPage() {
                 <circle cx="12" cy="12" r="4" />
                 <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
               </svg>
-              Find me on Instagram at @tulsi.and.friends!
+              Find us on Instagram at @tulsi.and.friends!
             </a>
           </p>
         </div>

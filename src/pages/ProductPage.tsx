@@ -32,7 +32,7 @@ export default function ProductPage() {
         <p className="t-body" style={{ color: 'var(--ink-2)', textAlign: 'center', maxWidth: '32ch' }}>
           No lizard with number <strong>№{productId}</strong> was found. They may have gone home already.
         </p>
-        <Link to="/" className="btn btn-primary">← Back to the coven</Link>
+        <Link to="/build-a-powerful-lizard" className="btn btn-primary">← Back to the coven</Link>
         </div>
       </>
     );
@@ -53,7 +53,7 @@ export default function ProductPage() {
       <div style={{ minHeight: '100vh', background: 'var(--cream)' }}>
       <div style={{ borderBottom: '1px solid var(--border)', background: 'var(--bone)' }}>
         <div className="container" style={{ padding: 'var(--s-3) var(--s-6)', display: 'flex', gap: 'var(--s-3)', alignItems: 'center' }}>
-          <Link to="/" style={{ color: 'var(--ink-3)', textDecoration: 'none', fontSize: 14 }}>The coven</Link>
+          <Link to="/build-a-powerful-lizard" style={{ color: 'var(--ink-3)', textDecoration: 'none', fontSize: 14 }}>The coven</Link>
           <span style={{ color: 'var(--ink-3)' }}>·</span>
           <span style={{ fontWeight: 700, fontSize: 14 }}>{liz.name} №{liz.num}</span>
           {step !== 'product' && (
@@ -358,7 +358,7 @@ function ConfirmedStep({ liz, form }: { liz: Lizard; form: FormState }) {
       <div style={{ padding: 'var(--s-3) var(--s-5)', background: 'var(--paper)', borderRadius: 'var(--r-md)', border: '1px solid var(--border)' }}>
         <div className="t-mono" style={{ color: 'var(--ink-3)' }}>Order · {liz.name} №{liz.num} · 1 of 1</div>
       </div>
-      <Link to="/" className="btn btn-soft">← Back to the coven</Link>
+      <Link to="/build-a-powerful-lizard" className="btn btn-soft">← Back to the coven</Link>
     </div>
   );
 }
