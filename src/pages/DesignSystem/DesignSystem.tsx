@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
 
-import { PALETTES, PAIRINGS, SWAP_FONTS_HREF } from '../data';
-import { TweaksPanel, TweakSection, TweakRadio, TweakToggle } from '../components/TweaksPanel';
-import { Hero } from '../sections/Hero';
-import { Voice } from '../sections/Voice';
-import { Colors } from '../sections/Colors';
-import { TypographySection } from '../sections/TypographySection';
-import { MotifSection } from '../sections/MotifSection';
-import { ComponentsSection } from '../sections/ComponentsSection';
-import { Shop } from '../sections/Shop';
-import { ProductDetail } from '../sections/ProductDetail';
-import { Cart } from '../sections/Cart';
-import { Footer } from '../sections/Footer';
+import { PALETTES, PAIRINGS, SWAP_FONTS_HREF } from '../../data';
+import { TweaksPanel, TweakSection, TweakRadio, TweakToggle } from '../../components/TweaksPanel';
+import { Hero } from '../../sections/Hero';
+import { Voice } from '../../sections/Voice';
+import { Colors } from '../../sections/Colors';
+import { TypographySection } from '../../sections/TypographySection';
+import { MotifSection } from '../../sections/MotifSection';
+import { ComponentsSection } from '../../sections/ComponentsSection';
+import { Shop } from '../../sections/Shop';
+import { ProductDetail } from '../../sections/ProductDetail';
+import { Cart } from '../../sections/Cart';
+import { Footer } from '../../sections/Footer';
 
 const TOC_SECTIONS = [
     ["hero", "Cover"],

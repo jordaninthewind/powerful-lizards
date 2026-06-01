@@ -19,7 +19,7 @@ export function Cart() {
             background: "linear-gradient(180deg, var(--paper) 0%, var(--cream) 100%)",
             position: "relative", overflow: "hidden",
           }}>
-            <div className="motif-dots" style={{ position: "absolute", inset: 0, color: "var(--coral)", opacity: 0.10 }}/>
+            <div className="motif-dots" style={{ position: "absolute", inset: 0, color: "var(--coral)", opacity: 0.10 }} />
             <div style={{ position: "relative" }}>
               <div className="t-eyebrow" style={{ marginBottom: "var(--s-2)" }}>You were looking at...</div>
               <h3 className="t-h2" style={{ margin: "0 0 var(--s-4) 0", maxWidth: "14ch" }}>
@@ -59,7 +59,7 @@ export function Cart() {
                     display: "flex", alignItems: "flex-end", justifyContent: "center",
                     flexShrink: 0,
                   }}>
-                    <LizardPortrait hat={l.hat} accent={l.accent} robe={l.robe} pattern={l.robePattern}/>
+                    <LizardPortrait hat={l.hat} accent={l.accent} robe={l.robe} pattern={l.robePattern} />
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{ display: "flex", justifyContent: "space-between" }}>

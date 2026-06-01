@@ -46,6 +46,35 @@ export function AboutSection() {
             the same from the kiln.
           </p>
 
+          <a
+            href="https://www.instagram.com/tulsi.and.friends"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hp-anim hp-d5"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              marginTop: 'var(--s-4)',
+              color: 'var(--marigold)',
+              textDecoration: 'none',
+              fontFamily: 'var(--font-sans)',
+              fontSize: 14,
+              letterSpacing: '0.02em',
+              opacity: 0.9,
+              transition: 'opacity 180ms var(--ease)',
+            }}
+            onMouseEnter={e => ((e.currentTarget as HTMLElement).style.opacity = '1')}
+            onMouseLeave={e => ((e.currentTarget as HTMLElement).style.opacity = '0.9')}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+            </svg>
+            @tulsi.and.friends
+          </a>
+
           <AboutStats />
         </div>
       </div>

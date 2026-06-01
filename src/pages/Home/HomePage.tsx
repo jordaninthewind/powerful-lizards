@@ -6,7 +6,6 @@ import { AboutSection } from './components/AboutSection';
 import { ContactSection } from './components/ContactSection';
 import { HeroSection } from './components/HeroSection';
 import { InventorySection } from './components/InventorySection';
-import { SectionNav } from './components/SectionNav';
 
 export default function HomePage() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -31,7 +30,7 @@ export default function HomePage() {
           }
         });
       },
-      { root: container, threshold: 0.55 }
+      { root: null, threshold: 0.35 }
     );
 
     sections.forEach(s => io.observe(s));
@@ -47,8 +46,7 @@ export default function HomePage() {
 
   return (
     <div className="hp-root" ref={rootRef}>
-      <SectionNav activeIdx={activeIdx} onSelect={scrollTo} />
-      <HeroSection onScrollTo={scrollTo} />
+      <HeroSection onScrollTo={scrollTo} activeIdx={activeIdx} />
       <AboutSection />
       <InventorySection />
       <ContactSection />

@@ -1,3 +1,4 @@
+import { ContactForm } from '../../../components/ContactForm';
 import { WizardMark } from '../../../components/WizardMark';
 import { ContactFooter } from './ContactFooter';
 import { ContactLinkList } from './ContactLinkList';
@@ -12,7 +13,12 @@ const EXPLORE_LINKS = [
   'Wholesale',
 ] as const;
 
-const FOLLOW_LINKS = ['@powerfulizards', 'Instagram', 'Field notes', 'Studio newsletter'] as const;
+const FOLLOW_LINKS = [
+  { label: '@tulsi.and.friends', href: 'https://www.instagram.com/tulsi.and.friends' },
+  { label: 'Instagram', href: 'https://www.instagram.com/tulsi.and.friends' },
+  'Field notes',
+  'Studio newsletter',
+] as const;
 
 export function ContactSection() {
   return (
@@ -42,15 +48,13 @@ export function ContactSection() {
             </div>
             <address style={{ fontStyle: 'normal' }}>
               <p className="t-body" style={{ color: 'var(--bone)', margin: '0 0 var(--s-2) 0' }}>
-                Outer Richmond
-                <br />
-                San Francisco, `CA 94131
-                <br />
+                Outer Richmond<br />
+                San Francisco, CA 94131<br />
                 USA
               </p>
             </address>
             <a
-              href="mailto:hello@powerfulizards.com"
+              href="mailto:anna@tulsiandfriends.com"
               style={{
                 color: 'var(--marigold)',
                 textDecoration: 'none',
@@ -58,7 +62,7 @@ export function ContactSection() {
                 fontSize: 14,
               }}
             >
-              hello@powerfulizards.com
+              anna@tulsiandfriends.com
             </a>
           </div>
 
@@ -77,6 +81,13 @@ export function ContactSection() {
           </div>
 
           <NewsletterSignup />
+        </div>
+
+        <div className="hp-anim hp-d6">
+          <div className="t-eyebrow" style={{ color: 'var(--marigold)', marginBottom: 'var(--s-3)' }}>
+            Get in touch
+          </div>
+          <ContactForm darkTheme />
         </div>
 
         <ContactFooter />

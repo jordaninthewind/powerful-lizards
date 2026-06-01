@@ -26,7 +26,7 @@ export function HeroShowcase() {
           <br />
           drop
         </div>
-        <div style={{ position: 'absolute', top: '38%', left: '-34px', color: 'var(--primary)' }}>
+        <div className="hp-deco-star" style={{ position: 'absolute', top: '38%', left: '-34px', color: 'var(--primary)' }}>
           <Star4 size={20} />
         </div>
       </div>
