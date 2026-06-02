@@ -15,8 +15,8 @@ export function SiteNav() {
   return (
     <header className="site-nav">
       <nav className="site-nav__inner" aria-label="Main">
-        <Link to="/" className="site-nav__brand" aria-label="Tulsi and Friends home">
-          <span className="site-nav__title">Tulsi and Friends</span>
+        <Link to="/" className="site-nav__brand" aria-label="Ceramics by Anna Brown home">
+          <span className="site-nav__title">Ceramics by Anna Brown</span>
         </Link>
         <ul className="site-nav__links">
           {NAV_LINKS.map(link => (

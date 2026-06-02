@@ -62,10 +62,9 @@ export function SageCustomizeForm() {
   return (
     <form className="inv-form" encType="multipart/form-data">
       <fieldset className="inv-form-fieldset">
-        <legend className="inv-form-legend">Build your protector!</legend>
+        <legend className="inv-section-title inv-form-legend">Build your protector!</legend>
 
         <div className="inv-form-instructions">
-          <p className="inv-form-instructions-lead">Here&apos;s how we&apos;ll shape your protector:</p>
           <ol className="inv-form-instructions-list">
             <li>
               Choose your protector type: <strong>newt</strong>, <strong>bearded dragon</strong>, or{' '}
@@ -83,8 +82,8 @@ export function SageCustomizeForm() {
               <a href="mailto:anna@tulsiandfriends.com">anna@tulsiandfriends.com</a>.
             </li>
             <li>
-              You can <strong>download one of the images below</strong>, add your notes to it, take
-              a screenshot, and <strong>attach it to this form</strong>.
+              You can <strong>download a sketch from the reference section below</strong>, add your
+              notes to it, take a screenshot, and <strong>attach it to this form</strong>.
             </li>
           </ol>
         </div>
@@ -169,7 +168,7 @@ export function SageCustomizeForm() {
             onChange={(e) => setReference(e.target.files?.[0] ?? null)}
           />
           <p className="inv-form-hint">
-            Annotated sketch or screenshot from the species images above — PNG or JPG works great.
+            Annotated sketch or screenshot from the reference section below — PNG or JPG works great.
           </p>
         </div>
 

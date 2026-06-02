@@ -28,47 +28,60 @@ export default function InventoryPage() {
         <section className="inv-intro" aria-labelledby="inv-intro-title">
           <div className="inv-intro-inner">
             <h1 id="inv-intro-title" className="inv-intro-title">
-              Welcome to the build a powerful lizard page
+              Build a Powerful Lizard!
             </h1>
             <p className="inv-intro-desc">
-              Welcome to the Build a Powerful Lizard page! Below you&apos;ll find options to
-              personalize your own special protector. Each sage is $35, made to order, and available
+              We're so glad you're here! Below you&apos;ll find options to
+              request your own special lizard protector. Each sage is $35, made to order, and available
               for pickup or delivery in the Bay Area. Turn around time is generally 2 weeks.
               We&apos;re so glad you&apos;re here!
             </p>
           </div>
         </section>
 
-        <div className="inv-list">
-          {LIZARDS.map((lizard, i) => (
-            <div key={lizard.num} className="inv-row" data-flip={i % 2 === 1 ? '' : undefined}>
-              <div
-                className="inv-portrait"
-                style={{
-                  background: `linear-gradient(180deg, ${lizard.swatch.bgTop} 0%, ${lizard.swatch.bgBottom} 100%)`,
-                }}
-              >
-                <div
-                  className={`motif-${lizard.motif} inv-motif`}
-                  style={{ color: lizard.swatch.motif }}
-                />
-                <div style={{ position: 'relative', zIndex: 1, width: '88%', height: '88%' }}>
-                  <LizardImage species={lizard.species} alt={`${lizard.name} ceramic lizard wizard`} />
+        <section className="inv-sages" aria-labelledby="inv-sages-title">
+          <div className="inv-sages-inner">
+            <h2 id="inv-sages-title" className="inv-section-title">
+              Available Sages
+            </h2>
+            <div className="inv-list">
+              {LIZARDS.map((lizard, i) => (
+                <div key={lizard.num} className="inv-row" data-flip={i % 2 === 1 ? '' : undefined}>
+                  <div
+                    className="inv-portrait"
+                    data-species={lizard.species}
+                    style={{
+                      background: `linear-gradient(180deg, ${lizard.swatch.bgTop} 0%, ${lizard.swatch.bgBottom} 100%)`,
+                    }}
+                  >
+                    <div
+                      className={`motif-${lizard.motif} inv-motif`}
+                      style={{ color: lizard.swatch.motif }}
+                    />
+                    <div className="inv-portrait-media">
+                      <LizardImage
+                        species={lizard.species}
+                        alt={`${lizard.name} ceramic lizard wizard`}
+                        style={{ height: 'auto', maxHeight: 'var(--inv-portrait-img-max)' }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="inv-text">
+                    <h2 className="inv-name">{lizard.name}</h2>
+                    <p className="inv-traits">{lizard.traits}</p>
+                  </div>
                 </div>
-              </div>
-
-              <div className="inv-text">
-                <h2 className="inv-name">{lizard.name}</h2>
-                <p className="inv-traits">{lizard.traits}</p>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        </section>
 
-        {/* ── Color Section ── */}
-        <section className="inv-colors">
+        <section className="inv-colors" aria-labelledby="inv-colors-title">
           <div className="inv-colors-inner">
-            <h2 className="inv-colors-title">Available Colors</h2>
+            <h2 id="inv-colors-title" className="inv-section-title">
+              Available Colors
+            </h2>
 
             <div className="inv-swatch-frame">
               {GLAZE_COLORS.map(({ name, hex }) => (
@@ -78,10 +91,24 @@ export default function InventoryPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="inv-customize" aria-label="Customize your protector">
+          <div className="inv-customize-inner">
+            <SageCustomizeForm />
+          </div>
+        </section>
+
+        <section className="inv-reference" aria-labelledby="inv-reference-title">
+          <div className="inv-reference-inner">
+            <h2 id="inv-reference-title" className="inv-section-title">
+              Optional: reference sketches
+            </h2>
 
             <p className="inv-download-note">
-              Download a species sketch below, mark it up with your ideas, then attach a screenshot in
-              the form.
+              Download a species sketch, mark it up with your ideas, then attach a screenshot in the
+              form above.
             </p>
 
             <div className="inv-species-grid">
@@ -104,9 +131,11 @@ export default function InventoryPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
 
-            <SageCustomizeForm />
-
+        <section className="inv-footer" aria-label="Instagram">
+          <div className="inv-footer-inner">
             <p className="inv-instagram">
               <a
                 href="https://www.instagram.com/tulsi.and.friends/"

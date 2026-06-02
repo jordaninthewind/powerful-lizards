@@ -1,13 +1,23 @@
 /* ── Page ── */
 .inv-page {
   min-height: 100vh;
-  background: var(--paper);
   overflow-x: hidden;
+}
+
+/* Full-bleed section bands — inner wrappers keep max-width */
+.inv-intro,
+.inv-sages,
+.inv-colors,
+.inv-customize,
+.inv-reference,
+.inv-footer {
+  width: 100%;
 }
 
 /* ── Intro ── */
 .inv-intro {
-  padding: var(--s-6) var(--s-6) 0;
+  background: var(--cream);
+  padding: var(--s-6) var(--s-6) var(--s-7);
 }
 
 .inv-intro-inner {
@@ -27,9 +37,9 @@
 
 .inv-intro-desc {
   font-family: var(--font-sans);
-  font-size: 17px;
+  font-size: 20px;
   color: var(--ink-2);
-  line-height: 1.65;
+  line-height: 1.6;
   margin: var(--s-4) 0 0;
   max-width: 65ch;
 }
@@ -57,10 +67,20 @@
   transform-origin: left center;
 }
 
-/* ── Alternating rows ── */
-.inv-list {
+/* ── Sage gallery ── */
+.inv-sages {
+  background: var(--bone);
+  padding: var(--s-6) var(--s-6) var(--s-7);
+}
+
+.inv-sages-inner {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+/* ── Alternating rows ── */
+.inv-list {
+  margin: 0;
 }
 
 .inv-row {
@@ -74,11 +94,12 @@
 
 /* ── Portrait block ── */
 .inv-portrait {
+  --inv-portrait-img-max: 300px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 500px;
+  min-height: 340px;
   overflow: hidden;
 }
 
@@ -87,6 +108,26 @@
   inset: 0;
   opacity: 0.5;
   pointer-events: none;
+}
+
+.inv-portrait-media {
+  position: relative;
+  z-index: 1;
+  width: 75%;
+  max-width: 75%;
+  max-height: var(--inv-portrait-img-max);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inv-portrait-media img {
+  width: 100%;
+  height: auto;
+  max-height: var(--inv-portrait-img-max);
+  object-fit: contain;
+  object-position: center;
 }
 
 .inv-status-badge {
@@ -111,9 +152,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: var(--s-8) var(--s-8);
-  gap: var(--s-3);
-  background: var(--paper);
+  padding: var(--s-7) var(--s-7);
+  gap: var(--s-2);
+  margin-bottom: var(--s-5);
 }
 
 .inv-num {
@@ -122,17 +163,17 @@
 
 .inv-name {
   font-family: var(--font-hand);
-  font-size: clamp(52px, 5.5vw, 80px);
+  font-size: clamp(24px, 3.5vw, 28px);
   font-weight: 700;
   color: var(--ink);
   margin: 0;
-  line-height: 1.05;
+  line-height: 1.15;
 }
 
 .inv-traits {
-  font-size: 17px;
+  font-size: 16px;
   color: var(--ink-2);
-  line-height: 1.65;
+  line-height: 1.7;
   margin: var(--s-1) 0 0;
   max-width: 34ch;
 }
@@ -151,11 +192,10 @@
   color: var(--ink);
 }
 
-/* ── Color Section ── */
+/* ── Color swatches ── */
 .inv-colors {
-  background: var(--bone);
-  padding: var(--s-6) var(--s-6);
-  border-top: 1px solid var(--border);
+  background: var(--paper);
+  padding: var(--s-6) var(--s-6) var(--s-7);
 }
 
 .inv-colors-inner {
@@ -163,9 +203,46 @@
   margin: 0 auto;
 }
 
-.inv-colors-title {
+/* ── Customize form ── */
+.inv-customize {
+  background: var(--cream);
+  padding: var(--s-6) var(--s-6) var(--s-7);
+}
+
+.inv-customize-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── Reference sketches ── */
+.inv-reference {
+  background: var(--bone);
+  padding: var(--s-6) var(--s-6) var(--s-7);
+}
+
+.inv-reference-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── Instagram footer ── */
+.inv-footer {
+  background: var(--paper);
+  padding: var(--s-6) var(--s-6) var(--s-8);
+}
+
+.inv-footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Shared section headings (h1 intro title stays larger) */
+.inv-section-title {
   font-family: var(--font-hand);
-  font-size: clamp(40px, 6vw, 72px);
+  font-size: clamp(32px, 5vw, 48px);
   font-weight: 700;
   color: var(--ink);
   margin: 0 0 var(--s-4);
@@ -208,15 +285,15 @@
   line-height: 1.4;
 }
 
-/* Download instruction — emphasized callout above species grid */
+/* Download instruction — callout above species grid */
 .inv-download-note {
   font-family: var(--font-sans);
-  font-size: 21px;
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1.5;
-  margin: 0 0 var(--s-7);
-  max-width: 34ch;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--ink-2);
+  line-height: 1.55;
+  margin: 0 0 var(--s-5);
+  max-width: 42ch;
 }
 
 /* Species reference grid */
@@ -241,7 +318,7 @@
 .inv-species-sketch {
   width: 100%;
   aspect-ratio: 3 / 4;
-  background: #fff;
+  background: var(--bone);
   border: 2px solid var(--ink);
   border-radius: var(--r-md);
   display: flex;
@@ -283,13 +360,8 @@
 }
 
 .inv-form-legend {
-  font-family: var(--font-hand);
-  font-size: clamp(32px, 5vw, 48px);
-  font-weight: 700;
-  color: var(--ink);
   padding: 0;
-  margin: 0 0 var(--s-4);
-  line-height: 1.1;
+  width: 100%;
 }
 
 .inv-form-instructions {
@@ -432,37 +504,38 @@
   text-align: center;
 }
 
-/* Instagram follow link below customize form */
+/* Instagram follow link in footer */
 .inv-instagram {
-  text-align: center;
-  margin: var(--s-7) auto 0;
+  width: 100%;
   max-width: 640px;
+  margin: 0;
+  text-align: center;
+  color: var(--ink);
 }
 
 .inv-instagram-link svg {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   flex-shrink: 0;
 }
 
 .inv-instagram-link {
   display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  color: var(--ink-2);
+  color: var(--ink);
   text-decoration: none;
   font-family: var(--font-sans);
-  font-size: 19px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 700;
   letter-spacing: 0.02em;
-  opacity: 0.85;
-  transition: color 180ms var(--ease), opacity 180ms var(--ease);
+  transition: color 180ms var(--ease);
 }
 
 .inv-instagram-link:hover {
   color: var(--marigold);
-  opacity: 1;
 }
 
 .inv-instagram-link:focus-visible {
@@ -481,10 +554,13 @@
   .inv-row[data-flip] .inv-portrait { order: unset; }
   .inv-row[data-flip] .inv-text     { order: unset; }
 
-  .inv-portrait { min-height: 360px; }
+  .inv-portrait {
+    --inv-portrait-img-max: 220px;
+    min-height: 250px;
+  }
 
   .inv-text {
-    padding: var(--s-6) var(--s-5);
+    padding: var(--s-5) var(--s-4);
     gap: var(--s-2);
   }
 
@@ -507,11 +583,19 @@
 }
 
 @media (max-width: 480px) {
-  .inv-intro { padding: var(--s-6) var(--s-5) 0; }
+  .inv-intro { padding: var(--s-6) var(--s-5) var(--s-6); }
+  .inv-sages { padding: 0 var(--s-5); }
   .inv-header { padding: var(--s-6) var(--s-5) var(--s-5); }
-  .inv-portrait { min-height: 300px; }
-  .inv-text { padding: var(--s-5) var(--s-4); }
-  .inv-colors { padding: var(--s-5) var(--s-4); }
+  .inv-portrait {
+    --inv-portrait-img-max: 175px;
+    min-height: 210px;
+  }
+  .inv-text { padding: var(--s-4) var(--s-3); }
+  .inv-colors,
+  .inv-customize,
+  .inv-reference,
+  .inv-footer { padding: var(--s-5) var(--s-4); }
+  .inv-sages { padding: var(--s-5) var(--s-4) var(--s-6); }
   .inv-swatch-frame {
     grid-template-columns: repeat(4, 1fr);
     padding: var(--s-2) var(--s-3);

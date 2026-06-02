@@ -8,7 +8,7 @@ const BEARDED_DRAGON_COVEN_SRC = '/assets/bearded-dragon-coven.png';
 const DEFAULT_ALTS: Record<LizardSpecies, string> = {
   lizard: 'Five ceramic lizard wizards on a black background',
   newt: 'Five ceramic newt wizards on a white background',
-  'bearded-dragon': 'Five ceramic bearded dragon wizards on a white background',
+  'bearded-dragon': 'Five ceramic bearded dragon wizards on a black background',
 };
 
 export function getLizardImageSrc(species: LizardSpecies): string {
