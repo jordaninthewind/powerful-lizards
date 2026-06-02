@@ -1,13 +1,12 @@
+import { useNavigate } from 'react-router';
+
 import { Button } from '../../../components/Button';
 import { EyebrowRow } from '../../../components/EyebrowRow';
 import { HOME_SECTIONS } from '../constants';
 
-interface HeroSectionProps {
-  onScrollTo: (idx: number) => void;
-  activeIdx: number;
-}
+const HeroSection = () => {
+  const navigate = useNavigate();
 
-export function HeroSection({ onScrollTo, activeIdx }: HeroSectionProps) {
   return (
     <section className="hp-section hp-section--hero" aria-label="Hero">
       <div className="hp-hero-bg" aria-hidden="true">
@@ -47,10 +46,10 @@ export function HeroSection({ onScrollTo, activeIdx }: HeroSectionProps) {
         </p>
 
         <div className="hp-anim hp-d4" style={{ display: 'flex', gap: 'var(--s-3)', flexWrap: 'wrap' }}>
-          <Button size="lg" onClick={() => onScrollTo(2)}>
+          <Button size="lg" onClick={() => navigate('/build-a-powerful-lizard')}>
             Choose your sage →
           </Button>
-          <Button variant="soft" size="lg" onClick={() => onScrollTo(1)}>
+          <Button variant="soft" size="lg" onClick={() => navigate('/about')}>
             Our story
           </Button>
         </div>
@@ -60,8 +59,6 @@ export function HeroSection({ onScrollTo, activeIdx }: HeroSectionProps) {
         {HOME_SECTIONS.map((label, i) => (
           <button
             key={label}
-            className={`hp-hero-dot${activeIdx === i ? ' active' : ''}`}
-            onClick={() => onScrollTo(i)}
             aria-label={`Go to ${label}`}
             title={label}
           />
@@ -70,3 +67,5 @@ export function HeroSection({ onScrollTo, activeIdx }: HeroSectionProps) {
     </section>
   );
 }
+
+export default HeroSection;

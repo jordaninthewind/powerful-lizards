@@ -15,7 +15,7 @@ export function SiteNav() {
   return (
     <header className="site-nav">
       <nav className="site-nav__inner" aria-label="Main">
-        <Link to="/build-a-powerful-lizard" className="site-nav__brand" aria-label="Tulsi and Friends home">
+        <Link to="/" className="site-nav__brand" aria-label="Tulsi and Friends home">
           <span className="site-nav__title">Tulsi and Friends</span>
         </Link>
         <ul className="site-nav__links">
@@ -24,8 +24,7 @@ export function SiteNav() {
               <NavLink
                 to={link.to}
                 className={({ isActive }) =>
-                  `site-nav__link${isActive ? ' site-nav__link--active' : ''}${
-                    'shortLabel' in link ? ' site-nav__link--build' : ''
+                  `site-nav__link${isActive ? ' site-nav__link--active' : ''}${'shortLabel' in link ? ' site-nav__link--build' : ''
                   }`
                 }
               >
