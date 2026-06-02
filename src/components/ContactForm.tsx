@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button } from './Button';
+import { supabase } from '../supabase/supabase';
 
 interface ContactFormProps {
   darkTheme?: boolean;
@@ -7,6 +8,7 @@ interface ContactFormProps {
 
 export function ContactForm({ darkTheme = false }: ContactFormProps) {
   const [submitted, setSubmitted] = useState(false);
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -23,8 +25,16 @@ export function ContactForm({ darkTheme = false }: ContactFormProps) {
     ? { color: 'rgba(255,248,232,0.55)', fontSize: 12, fontFamily: 'var(--font-sans)', letterSpacing: '0.06em', textTransform: 'uppercase' as const, display: 'block', marginBottom: 6 }
     : { fontSize: 12, fontFamily: 'var(--font-sans)', letterSpacing: '0.06em', textTransform: 'uppercase' as const, display: 'block', marginBottom: 6 };
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+
+    const payload = {
+      name,
+      email,
+      message,
+    };
+
+    await supabase.from('contact-form').insert(payload);
 
     setSubmitted(true);
   }
@@ -38,7 +48,7 @@ export function ContactForm({ darkTheme = false }: ContactFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--s-3)' }}>
+    <form style={{ display: 'flex', flexDirection: 'column', gap: 'var(--s-3)' }}>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--s-3)' }}>
         <div>
           <label htmlFor="cf-name" style={labelStyle}>Name</label>
@@ -49,6 +59,8 @@ export function ContactForm({ darkTheme = false }: ContactFormProps) {
             placeholder="Your name"
             required
             style={inputStyle}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
         </div>
         <div>
@@ -60,6 +72,8 @@ export function ContactForm({ darkTheme = false }: ContactFormProps) {
             placeholder="you@your-cave.com"
             required
             style={inputStyle}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
       </div>
@@ -67,6 +81,8 @@ export function ContactForm({ darkTheme = false }: ContactFormProps) {
         <label htmlFor="cf-message" style={labelStyle}>Message <span style={{ opacity: 0.5 }}>(optional)</span></label>
         <textarea
           id="cf-message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
           className="input"
           placeholder="Say hello, ask about a piece, or just tell us what you're hunting for…"
           rows={4}
@@ -74,7 +90,7 @@ export function ContactForm({ darkTheme = false }: ContactFormProps) {
         />
       </div>
       <div>
-        <Button type="submit">Send message</Button>
+        <Button type="submit" onClick={handleSubmit}>Send message</Button>
       </div>
     </form>
   );
