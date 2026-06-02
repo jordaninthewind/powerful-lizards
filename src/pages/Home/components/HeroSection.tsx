@@ -56,7 +56,7 @@ const HeroSection = () => {
       </div>
 
       <nav className="hp-hero-dots" aria-label="Navigate sections">
-        {HOME_SECTIONS.map((label, i) => (
+        {HOME_SECTIONS.map(label => (
           <button
             key={label}
             aria-label={`Go to ${label}`}

@@ -1,7 +1,11 @@
-import { useState, type FormEvent } from 'react';
-import { Button } from '../../../components/Button';
+import { useState } from 'react';
 
-const SPECIES_OPTIONS = ['Newt', 'Bearded Dragon', 'Lizard'] as const;
+import { Button } from '../../../components/Button';
+import { supabase } from '../../../supabase/supabase';
+
+type Species = typeof SPECIES_OPTIONS[number];
+
+const SPECIES_OPTIONS = ['Newt', 'Bearded Dragon', 'Lizard'];
 
 const labelStyle = {
   fontSize: 12,
@@ -16,28 +20,32 @@ const labelStyle = {
 export function SageCustomizeForm() {
   const [submitted, setSubmitted] = useState(false);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [type, setType] = useState<Species>('');
+  const [notes, setNotes] = useState<string>('');
+  const [reference, setReference] = useState<File | null>(null);
+
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    const attachment = data.get('reference');
+
+    let referenceUrl: string | null = null;
+
+    if (reference instanceof File && reference.size > 0) {
+      const info = await supabase.storage.from('lizard-images').upload(reference.name, reference);
+      referenceUrl = info.data?.fullPath ?? null;
+    }
 
     const payload = {
-      name: data.get('name'),
-      email: data.get('email') || undefined,
-      species: data.get('species'),
-      notes: data.get('notes'),
-      reference:
-        attachment instanceof File && attachment.size > 0
-          ? { name: attachment.name, size: attachment.size, type: attachment.type }
-          : undefined,
+      name,
+      email,
+      type,
+      notes,
+      url: referenceUrl,
     };
 
-    console.log('Sage customization request:', payload);
-    if (attachment instanceof File && attachment.size > 0) {
-      const withFile = new FormData(form);
-      console.log('Sage customization FormData (includes reference file):', [...withFile.entries()]);
-    }
+    await supabase.from('lizard-requests').insert(payload);
+
     setSubmitted(true);
   }
 
@@ -45,15 +53,14 @@ export function SageCustomizeForm() {
     return (
       <div className="inv-form" role="status">
         <p className="inv-form-success">
-          Thanks — I&apos;ve got your notes! I&apos;ll get back to you within 24 hours with a
-          mockup.
+          Thanks — I&apos;ve got your notes! I&apos;ll get back to you within 24 hours with confirmation of your order.
         </p>
       </div>
     );
   }
 
   return (
-    <form className="inv-form" onSubmit={handleSubmit} encType="multipart/form-data">
+    <form className="inv-form" encType="multipart/form-data">
       <fieldset className="inv-form-fieldset">
         <legend className="inv-form-legend">Build your protector!</legend>
 
@@ -89,10 +96,12 @@ export function SageCustomizeForm() {
             </label>
             <input
               id="sage-name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="input"
               type="text"
               name="name"
-              placeholder="Who should I address?"
+              placeholder="Your name"
               required
               autoComplete="name"
             />
@@ -100,14 +109,16 @@ export function SageCustomizeForm() {
 
           <div className="inv-form-field">
             <label htmlFor="sage-email" style={labelStyle}>
-              Email <span className="inv-form-optional">(optional)</span>
+              Email
             </label>
             <input
               id="sage-email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="input"
               type="email"
               name="email"
-              placeholder="you@your-cave.com"
+              placeholder="you@wizardsandfriends.com"
               autoComplete="email"
             />
           </div>
@@ -117,7 +128,7 @@ export function SageCustomizeForm() {
           <label htmlFor="sage-species" style={labelStyle}>
             Protector type <span className="inv-form-required">(required)</span>
           </label>
-          <select id="sage-species" className="input inv-form-select" name="species" required defaultValue="">
+          <select id="sage-species" className="input inv-form-select" name="species" required defaultValue={type} onChange={(e) => setType(e.target.value)}>
             <option value="" disabled>
               Choose newt, bearded dragon, or lizard…
             </option>
@@ -140,6 +151,8 @@ export function SageCustomizeForm() {
             rows={6}
             required
             placeholder="Cape colors, patterns or symbols you want, hat or props, glaze ideas, size notes — and anything else that helps me picture your piece!"
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
           />
         </div>
 
@@ -153,6 +166,7 @@ export function SageCustomizeForm() {
             type="file"
             name="reference"
             accept="image/*"
+            onChange={(e) => setReference(e.target.files?.[0] ?? null)}
           />
           <p className="inv-form-hint">
             Annotated sketch or screenshot from the species images above — PNG or JPG works great.
@@ -160,7 +174,7 @@ export function SageCustomizeForm() {
         </div>
 
         <div className="inv-form-actions">
-          <Button type="submit">Send request</Button>
+          <Button type="submit" disabled={!name || !email || !type} onClick={handleSubmit}>Send request</Button>
         </div>
       </fieldset>
     </form>

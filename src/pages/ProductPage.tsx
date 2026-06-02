@@ -28,11 +28,11 @@ export default function ProductPage() {
       <>
         <SiteNav />
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 'var(--s-5)', padding: 'var(--s-6)' }}>
-        <div className="t-hand" style={{ fontSize: 48 }}>no lizard here.</div>
-        <p className="t-body" style={{ color: 'var(--ink-2)', textAlign: 'center', maxWidth: '32ch' }}>
-          No lizard with number <strong>№{productId}</strong> was found. They may have gone home already.
-        </p>
-        <Link to="/build-a-powerful-lizard" className="btn btn-primary">← Back to the coven</Link>
+          <div className="t-hand" style={{ fontSize: 48 }}>no lizard here.</div>
+          <p className="t-body" style={{ color: 'var(--ink-2)', textAlign: 'center', maxWidth: '32ch' }}>
+            No lizard with number <strong>№{productId}</strong> was found. They may have gone home already.
+          </p>
+          <Link to="/build-a-powerful-lizard" className="btn btn-primary">← Back to the coven</Link>
         </div>
       </>
     );
@@ -51,95 +51,95 @@ export default function ProductPage() {
     <>
       <SiteNav />
       <div style={{ minHeight: '100vh', background: 'var(--cream)' }}>
-      <div style={{ borderBottom: '1px solid var(--border)', background: 'var(--bone)' }}>
-        <div className="container" style={{ padding: 'var(--s-3) var(--s-6)', display: 'flex', gap: 'var(--s-3)', alignItems: 'center' }}>
-          <Link to="/build-a-powerful-lizard" style={{ color: 'var(--ink-3)', textDecoration: 'none', fontSize: 14 }}>The coven</Link>
-          <span style={{ color: 'var(--ink-3)' }}>·</span>
-          <span style={{ fontWeight: 700, fontSize: 14 }}>{liz.name} №{liz.num}</span>
-          {step !== 'product' && (
-            <>
-              <span style={{ color: 'var(--ink-3)' }}>·</span>
-              <span style={{ fontSize: 14, color: 'var(--ink-3)' }}>
-                {step === 'shipping' && 'Shipping'}
-                {step === 'payment' && 'Payment'}
-                {step === 'confirmed' && 'Confirmed'}
-              </span>
-            </>
-          )}
-        </div>
-      </div>
-
-      <div className="container" style={{ padding: 'var(--s-7) var(--s-6)' }}>
-        <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 0 }}>
-
-            {/* Left: image stays fixed through all checkout steps */}
-            <div style={{ padding: 'var(--s-6)', background: 'var(--paper)', borderRight: '1px solid var(--border)' }}>
-              <div style={{
-                aspectRatio: '1/1',
-                background: `linear-gradient(180deg, ${swatches[photo].bgTop} 0%, ${swatches[photo].bgBottom} 100%)`,
-                borderRadius: 'var(--r-md)', overflow: 'hidden', position: 'relative',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                border: '1px solid var(--border)',
-              }}>
-                <div className={`motif-${liz.motif}`} style={{ position: 'absolute', inset: 0, color: liz.swatch.motif, opacity: 0.4 }} />
-                <div style={{ position: 'relative', zIndex: 1, width: '88%', height: '88%' }}>
-                  <LizardImage species={liz.species} alt={`${liz.name} ceramic lizard wizard`} />
-                </div>
-                <div style={{ position: 'absolute', top: 18, left: 18 }}>
-                  <span className={`badge badge-${liz.status}`}>
-                    {liz.status === 'available' && 'Available'}
-                    {liz.status === 'new' && 'New drop'}
-                    {liz.status === 'reserved' && 'On hold'}
-                    {liz.status === 'sold' && '✦ adopted'}
-                  </span>
-                </div>
-                <div style={{
-                  position: 'absolute', bottom: 18, right: 18,
-                  background: 'rgba(255,248,232,0.85)', backdropFilter: 'blur(8px)',
-                  padding: '6px 12px', borderRadius: 'var(--r-pill)',
-                  display: 'flex', alignItems: 'center', gap: 8,
-                }}>
-                  <Star4 size={14} style={{ color: 'var(--primary)' }} />
-                  <span className="t-small" style={{ color: 'var(--ink)', fontWeight: 600 }}>1 of 1</span>
-                </div>
-              </div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 'var(--s-2)', marginTop: 'var(--s-3)' }}>
-                {swatches.map((s, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setPhoto(i)}
-                    style={{
-                      aspectRatio: '1/1', border: 0, cursor: 'pointer',
-                      background: `linear-gradient(180deg, ${s.bgTop} 0%, ${s.bgBottom} 100%)`,
-                      borderRadius: 'var(--r-sm)',
-                      boxShadow: photo === i ? '0 0 0 2.5px var(--ink)' : '0 0 0 1px var(--border)',
-                      padding: 0,
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Right: step-based content */}
-            <div style={{ padding: 'var(--s-6)' }}>
-              {step === 'product' && (
-                <ProductInfo liz={liz} canPurchase={canPurchase} onCheckout={() => setStep('shipping')} />
-              )}
-              {step === 'shipping' && (
-                <ShippingStep liz={liz} form={form} setForm={setForm} onBack={() => setStep('product')} onContinue={() => setStep('payment')} />
-              )}
-              {step === 'payment' && (
-                <PaymentStep liz={liz} onBack={() => setStep('shipping')} onConfirm={() => setStep('confirmed')} />
-              )}
-              {step === 'confirmed' && (
-                <ConfirmedStep liz={liz} form={form} />
-              )}
-            </div>
-
+        <div style={{ borderBottom: '1px solid var(--border)', background: 'var(--bone)' }}>
+          <div className="container" style={{ padding: 'var(--s-3) var(--s-6)', display: 'flex', gap: 'var(--s-3)', alignItems: 'center' }}>
+            <Link to="/build-a-powerful-lizard" style={{ color: 'var(--ink-3)', textDecoration: 'none', fontSize: 14 }}>The coven</Link>
+            <span style={{ color: 'var(--ink-3)' }}>·</span>
+            <span style={{ fontWeight: 700, fontSize: 14 }}>{liz.name} №{liz.num}</span>
+            {step !== 'product' && (
+              <>
+                <span style={{ color: 'var(--ink-3)' }}>·</span>
+                <span style={{ fontSize: 14, color: 'var(--ink-3)' }}>
+                  {step === 'shipping' && 'Shipping'}
+                  {step === 'payment' && 'Payment'}
+                  {step === 'confirmed' && 'Confirmed'}
+                </span>
+              </>
+            )}
           </div>
         </div>
-      </div>
+
+        <div className="container" style={{ padding: 'var(--s-7) var(--s-6)' }}>
+          <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 0 }}>
+
+              {/* Left: image stays fixed through all checkout steps */}
+              <div style={{ padding: 'var(--s-6)', background: 'var(--paper)', borderRight: '1px solid var(--border)' }}>
+                <div style={{
+                  aspectRatio: '1/1',
+                  background: `linear-gradient(180deg, ${swatches[photo].bgTop} 0%, ${swatches[photo].bgBottom} 100%)`,
+                  borderRadius: 'var(--r-md)', overflow: 'hidden', position: 'relative',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  border: '1px solid var(--border)',
+                }}>
+                  <div className={`motif-${liz.motif}`} style={{ position: 'absolute', inset: 0, color: liz.swatch.motif, opacity: 0.4 }} />
+                  <div style={{ position: 'relative', zIndex: 1, width: '88%', height: '88%' }}>
+                    <LizardImage species={liz.species} alt={`${liz.name} ceramic lizard wizard`} />
+                  </div>
+                  <div style={{ position: 'absolute', top: 18, left: 18 }}>
+                    <span className={`badge badge-${liz.status}`}>
+                      {liz.status === 'available' && 'Available'}
+                      {liz.status === 'new' && 'New drop'}
+                      {liz.status === 'reserved' && 'On hold'}
+                      {liz.status === 'sold' && '✦ adopted'}
+                    </span>
+                  </div>
+                  <div style={{
+                    position: 'absolute', bottom: 18, right: 18,
+                    background: 'rgba(255,248,232,0.85)', backdropFilter: 'blur(8px)',
+                    padding: '6px 12px', borderRadius: 'var(--r-pill)',
+                    display: 'flex', alignItems: 'center', gap: 8,
+                  }}>
+                    <Star4 size={14} style={{ color: 'var(--primary)' }} />
+                    <span className="t-small" style={{ color: 'var(--ink)', fontWeight: 600 }}>1 of 1</span>
+                  </div>
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 'var(--s-2)', marginTop: 'var(--s-3)' }}>
+                  {swatches.map((s, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setPhoto(i)}
+                      style={{
+                        aspectRatio: '1/1', border: 0, cursor: 'pointer',
+                        background: `linear-gradient(180deg, ${s.bgTop} 0%, ${s.bgBottom} 100%)`,
+                        borderRadius: 'var(--r-sm)',
+                        boxShadow: photo === i ? '0 0 0 2.5px var(--ink)' : '0 0 0 1px var(--border)',
+                        padding: 0,
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Right: step-based content */}
+              <div style={{ padding: 'var(--s-6)' }}>
+                {step === 'product' && (
+                  <ProductInfo liz={liz} canPurchase={canPurchase} onCheckout={() => setStep('shipping')} />
+                )}
+                {step === 'shipping' && (
+                  <ShippingStep liz={liz} form={form} setForm={setForm} onBack={() => setStep('product')} onContinue={() => setStep('payment')} />
+                )}
+                {step === 'payment' && (
+                  <PaymentStep liz={liz} onBack={() => setStep('shipping')} onConfirm={() => setStep('confirmed')} />
+                )}
+                {step === 'confirmed' && (
+                  <ConfirmedStep liz={liz} form={form} />
+                )}
+              </div>
+
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
@@ -306,12 +306,12 @@ function PaymentStep({ liz, onBack, onConfirm }: { liz: Lizard; onBack: () => vo
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--s-3)' }}>
-        <Field label="Card number" value="" onChange={() => {}} placeholder="4242 4242 4242 4242" disabled />
+        <Field label="Card number" value="" onChange={() => { }} placeholder="4242 4242 4242 4242" disabled />
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--s-3)' }}>
-          <Field label="Expiry" value="" onChange={() => {}} placeholder="MM / YY" disabled />
-          <Field label="CVC" value="" onChange={() => {}} placeholder="···" disabled />
+          <Field label="Expiry" value="" onChange={() => { }} placeholder="MM / YY" disabled />
+          <Field label="CVC" value="" onChange={() => { }} placeholder="···" disabled />
         </div>
-        <Field label="Name on card" value="" onChange={() => {}} placeholder="Wilhelmina Fern" disabled />
+        <Field label="Name on card" value="" onChange={() => { }} placeholder="Wilhelmina Fern" disabled />
       </div>
 
       <div style={{

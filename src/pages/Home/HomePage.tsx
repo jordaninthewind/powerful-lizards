@@ -1,9 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
-
 import { SiteNav } from '../../components/SiteNav';
 import { AboutSection } from './components/AboutSection';
 import { ContactSection } from './components/ContactSection';
-import { HeroSection } from './components/HeroSection';
+import HeroSection from './components/HeroSection';
 import { InventorySection } from './components/InventorySection';
 
 import '../../App.css';

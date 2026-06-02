@@ -1,10 +1,11 @@
+import { Analytics } from '@vercel/analytics/react';
 import { Suspense } from 'react';
-import { createBrowserRouter, Navigate, RouterProvider } from 'react-router'
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router';
 
-import AboutPage from './pages/About/AboutPage.tsx'
-import DesignSystem from './pages/DesignSystem/DesignSystem.tsx'
-import ProductPage from './pages/ProductPage.tsx'
-import InventoryPage from './pages/Inventory/InventoryPage.tsx'
+import AboutPage from './pages/About/AboutPage.tsx';
+import DesignSystem from './pages/DesignSystem/DesignSystem.tsx';
+import InventoryPage from './pages/Inventory/InventoryPage.tsx';
+import ProductPage from './pages/ProductPage.tsx';
 
 const router = createBrowserRouter([
   { path: '/', element: <Navigate to="/build-a-powerful-lizard" replace /> },
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
 const App = () => (
   <Suspense fallback={<div>Loading...</div>}>
     <RouterProvider router={router} />
+    <Analytics />
   </Suspense>
 );
 

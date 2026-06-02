@@ -7,13 +7,16 @@ interface ContactFormProps {
 
 export function ContactForm({ darkTheme = false }: ContactFormProps) {
   const [submitted, setSubmitted] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
   const inputStyle = darkTheme
     ? {
-        background: 'rgba(255,248,232,0.07)',
-        color: 'var(--bone)',
-        borderColor: 'rgba(255,248,232,0.15)',
-      }
+      background: 'rgba(255,248,232,0.07)',
+      color: 'var(--bone)',
+      borderColor: 'rgba(255,248,232,0.15)',
+    }
     : {};
 
   const labelStyle = darkTheme
@@ -22,6 +25,7 @@ export function ContactForm({ darkTheme = false }: ContactFormProps) {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
     setSubmitted(true);
   }
 
