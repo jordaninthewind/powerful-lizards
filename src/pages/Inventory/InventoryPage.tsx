@@ -31,7 +31,7 @@ export default function InventoryPage() {
               Build a Powerful Lizard!
             </h1>
             <p className="inv-intro-desc">
-              We're so glad you're here! Below you&apos;ll find options to
+              Below you&apos;ll find options to
               request your own special lizard protector. Each sage is $35, made to order, and available
               for pickup or delivery in the Bay Area. Turn around time is generally 2 weeks.
               We&apos;re so glad you&apos;re here!

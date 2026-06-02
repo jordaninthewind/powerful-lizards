@@ -228,7 +228,7 @@
 /* ── Instagram footer ── */
 .inv-footer {
   background: var(--paper);
-  padding: var(--s-6) var(--s-6) var(--s-8);
+  padding: var(--s-6) var(--s-6);
 }
 
 .inv-footer-inner {
@@ -349,7 +349,7 @@
 .inv-form {
   width: 100%;
   max-width: 640px;
-  margin: var(--s-8) auto 0;
+  margin: 0 auto;
 }
 
 .inv-form-fieldset {
@@ -510,12 +510,12 @@
   max-width: 640px;
   margin: 0;
   text-align: center;
-  color: var(--ink);
+  color: var(--ink-2);
 }
 
 .inv-instagram-link svg {
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
 }
 
@@ -524,14 +524,14 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  color: var(--ink);
+  gap: var(--s-2);
+  color: var(--ink-2);
   text-decoration: none;
   font-family: var(--font-sans);
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  transition: color 180ms var(--ease);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  transition: color 160ms var(--ease);
 }
 
 .inv-instagram-link:hover {
