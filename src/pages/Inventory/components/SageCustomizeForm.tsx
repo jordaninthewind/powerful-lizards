@@ -173,7 +173,13 @@ export function SageCustomizeForm() {
         </div>
 
         <div className="inv-form-actions">
-          <Button type="submit" disabled={!name || !email || !type} onClick={handleSubmit}>Send request</Button>
+          <Button
+            type="submit"
+            disabled={!name || !email || !type}
+            onClick={handleSubmit}
+          >
+            Send request
+          </Button>
         </div>
       </fieldset>
     </form>
